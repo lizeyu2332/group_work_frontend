@@ -1,0 +1,161 @@
+:root {
+    --primary-color: #4e8cff;      /* 主色调：科技蓝 */
+    --primary-hover: #3a7bd5;
+    --accent-color: #ffc107;       /* 强调色：收藏黄 */
+    --danger-color: #ff6b6b;       /* 删除红 */
+    --bg-color: #f0f2f5;           /* 网页背景灰 */
+    --card-bg: #ffffff;
+    --text-main: #2c3e50;
+    --text-sub: #7f8c8d;
+    --border-radius: 12px;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+body {
+    font-family: 'Noto Sans SC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.main-wrapper {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* 头部样式 */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    color: white;
+    box-shadow: 0 10px 20px rgba(118, 75, 162, 0.2);
+}
+
+.logo-area h1 { margin: 0; font-size: 1.8rem; }
+.logo-area p { margin: 5px 0 0; opacity: 0.8; font-size: 0.9rem; }
+
+.header-actions { display: flex; gap: 15px; }
+
+/* 按钮样式 */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.btn-outline {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(5px);
+}
+.btn-outline:hover { background: rgba(255, 255, 255, 0.3); transform: translateY(-2px); }
+
+.btn-primary { background-color: var(--primary-color); color: white; }
+.btn-primary:hover { background-color: var(--primary-hover); box-shadow: 0 4px 10px rgba(78, 140, 255, 0.3); }
+
+.btn-text { background: transparent; color: var(--primary-color); padding: 5px 10px; }
+.btn-text:hover { background: #eef5ff; }
+
+.btn-block { width: 100%; display: block; margin-top: 15px; padding: 12px; }
+
+/* 布局区域 */
+.content-area {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* 左侧编辑器占 1份，右侧列表占 1.5份 */
+    gap: 30px;
+}
+
+/* 卡片通用样式 */
+.card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    height: fit-content;
+}
+
+.card-header {
+    padding: 20px 25px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card-header h2 { margin: 0; font-size: 1.2rem; color: var(--text-main); }
+
+.card-body { padding: 25px; }
+
+/* 表单样式 */
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; }
+
+.input-field {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-sizing: border-box; /* 关键：防止padding撑大宽度 */
+    transition: border-color 0.3s;
+    font-family: inherit;
+}
+.input-field:focus { border-color: var(--primary-color); outline: none; }
+
+.method-row { display: flex; gap: 10px; margin-bottom: 10px; }
+.method-type { flex: 0 0 90px; } /* 固定选择框宽度 */
+.method-value { flex: 1; }
+
+/* 联系人列表 */
+.contact-list { list-style: none; padding: 0; margin: 0; }
+
+.contact-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background: #f8f9fa;
+    transition: transform 0.2s, background 0.2s;
+    border-left: 4px solid transparent; /* 默认左边框透明 */
+}
+
+.contact-item:hover { transform: translateX(5px); background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+
+/* 收藏状态 */
+.contact-item.bookmarked {
+    background: #fffcf0;
+    border-left-color: var(--accent-color);
+}
+
+.contact-name { font-size: 1.1rem; font-weight: bold; margin-bottom: 5px; display: block; }
+.detail-row { font-size: 0.85rem; color: var(--text-sub); margin-bottom: 2px; }
+.detail-label { font-weight: 500; color: #555; }
+
+/* 列表操作按钮 */
+.action-area { display: flex; flex-direction: column; gap: 5px; align-items: flex-end; }
+.star-btn { font-size: 1.5rem; border: none; background: none; cursor: pointer; color: #dcdcdc; transition: color 0.3s; padding: 0;}
+.star-btn.active { color: var(--accent-color); }
+.star-btn:hover { transform: scale(1.1); }
+
+.delete-btn { font-size: 0.8rem; color: var(--danger-color); background: none; border: none; cursor: pointer; opacity: 0.6; }
+.delete-btn:hover { opacity: 1; text-decoration: underline; }
+
+/* 响应式：手机端变成单列 */
+@media (max-width: 768px) {
+    .content-area { grid-template-columns: 1fr; }
+    .app-header { flex-direction: column; text-align: center; gap: 15px; }
+    .header-actions { width: 100%; justify-content: center; }
+}
