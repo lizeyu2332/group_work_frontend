@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://127.0.0.1:5001"; 
+const API_BASE_URL = "https://group-work-backend.onrender.com"; 
 
 // 1. 获取并显示联系人
 async function fetchContacts() {
